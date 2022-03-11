@@ -2,8 +2,8 @@ import './App.css';
 import ToDoList from './ToDoList'
 import ToDoForm from './ToDoForm'
 import { useEffect } from 'react'
-import {fetchTodo} from './actions/actions'
-import {connect} from 'react-redux'
+import { fetchTodo } from './actions/actions'
+import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => ({
   isLoading: state.isLoading,
@@ -13,11 +13,11 @@ const mapStateToProps = (state) => ({
 function App(props) {
   useEffect(()=>{
     props.fetchTodo()
-}, [])
+},[])
   return (
     <div className="App">
       <ToDoForm />
-      {props.isLoading ? "TODO LIST" : "TODO LIST LOADED" }
+      {props.isLoading ? "TODO LIST IS LOADING" : "TODO LIST LOADED" }
       <ToDoList />
       {props.error !== "" ? props.error : ""}
     </div>
